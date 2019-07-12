@@ -10,4 +10,4 @@ The design of this tool is as follows:
 - run hands in the database through a GTO solver that mathematically analyzes play
 - no current intentions to include a HUD in this application, but that may change
 
-Currently not accepting any pull requests as this is a personal project at the moment.
+Currently not accepting any pull requests as this is a personal project.
