@@ -2,7 +2,7 @@ package com.clarkfordham;
 
 import javax.swing.*;
 
-public class GUI
+public class app
 {
 
     static void createGUI(){
@@ -13,7 +13,7 @@ public class GUI
         JLabel label = new JLabel("Hands");
         frame.getContentPane().add(label);
 
-        frame.pack();
+        frame.setSize(400,400);
         frame.setVisible(true);
     }
     public static void main( String[] args )
