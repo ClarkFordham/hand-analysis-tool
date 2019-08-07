@@ -4,7 +4,6 @@ import javax.swing.*;
 
 public class app
 {
-
     static void createGUI(){
         JFrame.setDefaultLookAndFeelDecorated(true);
         JFrame frame = new JFrame("Hand Analysis Tool"); //may need to change name later

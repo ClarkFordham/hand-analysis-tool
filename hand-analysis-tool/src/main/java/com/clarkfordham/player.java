@@ -17,4 +17,15 @@ class Player{
     action[] turn;
     action[] river;
     //may need a class that packages the action and amount together if applicable. 
+
+    Player(int chipval, String username, Card[] cards, int seat, action[] preflopaction, action[] flopaction, action[] turnaction, action[] riveraction){
+        chips = chipval;
+        name = username;
+        holeCards = cards;
+        seatNum = seat;
+        preflop = preflopaction;
+        flop = flopaction;
+        turn = turnaction;
+        river = riveraction;
+    }
 }
