@@ -1,10 +1,5 @@
 package com.clarkfordham;
 
-enum action{
-    //Fold, check, bet, raise, call
-    F, X, B, R, C;
-}
-
 //this refers to a player in a hand for replay purposes
 class Player{
     int chips;
@@ -12,13 +7,13 @@ class Player{
     Card[] holeCards;
     int seatNum;
     //may need to add something about position
-    action[] preflop;
-    action[] flop;
-    action[] turn;
-    action[] river;
+    Action[] preflop;
+    Action[] flop;
+    Action[] turn;
+    Action[] river;
     //may need a class that packages the action and amount together if applicable. 
 
-    Player(int chipval, String username, Card[] cards, int seat, action[] preflopaction, action[] flopaction, action[] turnaction, action[] riveraction){
+    Player(int chipval, String username, Card[] cards, int seat, Action[] preflopaction, Action[] flopaction, Action[] turnaction, Action[] riveraction){
         chips = chipval;
         name = username;
         holeCards = cards;

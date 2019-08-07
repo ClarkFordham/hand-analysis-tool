@@ -23,8 +23,12 @@ class Hand{
     //seat # that has the button
     int buttonNum;
 
-    Hand(int P, Player[] player, int button){
+    Hand(int num, String game, String table, int P, String bigBlind, Player[] player, int button){
+        id = num;
+        gameType = game;
+        tableName = table;
         numPlayers = P;
+        BB = bigBlind;
         players = player;
         buttonNum = button;
     }
