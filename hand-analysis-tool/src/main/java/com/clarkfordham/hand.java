@@ -3,7 +3,7 @@ package com.clarkfordham;
 //will contain all of the information about a hand, useful for replays and database storage. Created with text parsing.
 class Hand{
     //hand #
-    int id;
+    String id;
 
     //ex: holem(nolimit)
     String gameType;
@@ -12,7 +12,7 @@ class Hand{
     String tableName;
 
     //table size ex: 6
-    int numPlayers;
+    String numPlayers;
 
     //big blind ex: $0.10
     String BB;
@@ -23,7 +23,7 @@ class Hand{
     //seat # that has the button
     int buttonNum;
 
-    Hand(int num, String game, String table, int P, String bigBlind, Player[] player, int button){
+    Hand(String num, String game, String table, String P, String bigBlind, Player[] player, int button){
         id = num;
         gameType = game;
         tableName = table;
