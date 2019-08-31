@@ -1,5 +1,6 @@
 package com.clarkfordham;
 
+import java.lang.reflect.Array;
 import java.util.*;
 import java.nio.file.*;
 import java.nio.charset.StandardCharsets;
@@ -30,15 +31,34 @@ class HistoryFile{
         }
     }
 
+    Player createPlayer(String line){
+        String[] split = line.split(" ");
+        
+        double chipval;
+        String username = split[2];
+        int seat = Integer.parseInt(split[1].substring(0, split[1].length()));
+
+
+        if(split[3].contains("$")){
+            chipval = Double.parseDouble(split[3].substring(2, split[3].length()-1));
+        } else {
+            chipval = Double.parseDouble(split[3].substring(1, split[3].length()-1));
+        }
+
+        Player p = new Player(chipval, username, seat);
+        return p;
+    }
+
     //builds a hand from the given text lines
     Hand buildHand(List<String> lines){
 
         String id = null;
         String game = null;
         String table = null;
-        String numPlayers = 0;
+        String numPlayers = "0";
         String BB = null;
-        Player[] playerList = null;
+        Player[] playerList;
+        playerList = new Player[10];
         int buttonNum = 0;
 
         for(int num = 0; num < lines.size(); num++){
@@ -61,6 +81,8 @@ class HistoryFile{
                     buttonNum = (int) info2[3].charAt(1);
 
                 case "Seat": //create player and add it to playerList
+                    Player newP = createPlayer(lines.get(num));
+                    Array.set(playerList, newP.seatNum, newP);
 
                 case "Dealt": //add cards to player
 
