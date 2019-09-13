@@ -13,12 +13,12 @@ class HistoryFile{
     String filePath;
 
     HistoryFile(String path){
-        filePath = path;
+        this.filePath = path;
     }
 
     //this is intended to bring up errors to users who have not entered a path to their hand histories.
     HistoryFile(){
-        filePath = null;
+        this.filePath = null;
     }
 
     //inserts the lines in the text file into the fileLines variable
@@ -47,6 +47,25 @@ class HistoryFile{
 
         Player p = new Player(chipval, username, seat);
         return p;
+    }
+
+    Card[] getCards(Player p, String line){
+        //takes a line, and return the cards that are contained in the brackets (see text file of hh)
+
+        int start = line.indexOf("[");
+        int end = line.indexOf("]");
+
+        String cards = line.substring(start + 1, end);
+
+        String[] cardVals= cards.split(" ");
+
+        Card[] result = new Card[cardVals.length];
+
+        for(int num = 0; num < cardVals.length; num++){
+            result[num] = new Card(cardVals[num].charAt(0), cardVals[num].charAt(1));
+        }
+
+        return result;
     }
 
     //builds a hand from the given text lines
@@ -85,6 +104,12 @@ class HistoryFile{
                     Array.set(playerList, newP.seatNum, newP);
 
                 case "Dealt": //add cards to player
+                    String[] splitLine = lines.get(num).split(" ");
+                    for(Player p: playerList){
+                        if(p.name == splitLine[2]){
+                            p.holeCards = getCards(p, lines.get(num));
+                        }
+                    }
 
                 case "*** SUMMARY ***": //get info from the entire summary and finish up
             }

@@ -24,12 +24,12 @@ class Hand{
     int buttonNum;
 
     Hand(String num, String game, String table, String P, String bigBlind, Player[] player, int button){
-        id = num;
-        gameType = game;
-        tableName = table;
-        numPlayers = P;
-        BB = bigBlind;
-        players = player;
-        buttonNum = button;
+        this.id = num;
+        this.gameType = game;
+        this.tableName = table;
+        this.numPlayers = P;
+        this.BB = bigBlind;
+        this.players = player;
+        this.buttonNum = button;
     }
 }

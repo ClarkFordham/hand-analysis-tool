@@ -14,19 +14,19 @@ class Player{
     //may need a class that packages the action and amount together if applicable. 
 
     Player(double chipval, String username, Card[] cards, int seat, Action[] preflopaction, Action[] flopaction, Action[] turnaction, Action[] riveraction){
-        chips = chipval;
-        name = username;
-        holeCards = cards;
-        seatNum = seat;
-        preflop = preflopaction;
-        flop = flopaction;
-        turn = turnaction;
-        river = riveraction;
+        this.chips = chipval;
+        this.name = username;
+        this.holeCards = cards;
+        this.seatNum = seat;
+        this.preflop = preflopaction;
+        this.flop = flopaction;
+        this.turn = turnaction;
+        this.river = riveraction;
     }
 
     Player(double chipval, String username, int seat){
-        chips = chipval;
-        name = username;
-        seatNum = seat;
+        this.chips = chipval;
+        this.name = username;
+        this.seatNum = seat;
     }
 }
